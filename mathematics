@@ -1,0 +1,44 @@
+You are given a large number made of only 0’s and 1’s.Your task is to find the max no of consecutive 1’s. If there are no 1’s print -1
+
+Input Description:
+A large number ‘n’
+
+Output Description:
+Print the max no of consecutive 1 in the number
+
+Sample Input :
+101011111
+Sample Output :
+5
+
+Program:-
+#include<stdio.h>
+void main()
+{
+    long num1,rem,f=0,c=0;
+    scanf("%ld",&num1);
+    if(num1<1)
+        printf("-1");
+    else
+    {
+        
+    while(num1>0)
+    {
+        rem=num1%10;
+        if(rem==1)
+        {
+            c++;
+        }
+        else{
+            if(f<c)
+            {
+                f=c;
+                c=0;
+            }
+        }
+        num1/=10;
+    }
+    printf("%ld",c>f?c:f);
+    }
+   
+}
